@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="MongoDb" id="Project_e64" database="MongoDb" >
+	<schema name="E-commerce" >
+		<table name="carts" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="name" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="user" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="product_qty" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="basePrice" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="sellPrice" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="totalprice" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="categories" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="name" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="slug" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="image" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="Description" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="orders" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="user_id" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="total_items" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="products" type="array" length="800" decimal="0" jt="4999545" mandatory="y" />
+			<column name="billing_address" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="shipping_address" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="transaction_status" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="payment_mode" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="payment_status" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="order_status" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="products" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="name" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="thumbnail" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="product_gallery" type="array" length="800" decimal="0" jt="4999545" mandatory="y" />
+			<column name="description" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="basePrice" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<column name="sellPrice" type="integer" length="800" decimal="0" jt="4" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="roles" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="name" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="slug" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="tags" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="name" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="slug" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+		<table name="user" >
+			<column name="_id" type="oid" length="800" decimal="0" jt="-8" mandatory="y" />
+			<column name="email" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="first_name" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="last_name" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="profile_image" type="string" length="800" decimal="0" jt="12" />
+			<column name="role" type="string" length="800" decimal="0" jt="12" mandatory="y" />
+			<column name="profile_img" type="string" length="800" decimal="0" jt="12" />
+			<index name="_id_" unique="PRIMARY_KEY" >
+				<column name="_id" />
+			</index>
+		</table>
+	</schema>
+	<connector name="MongoDb" database="MongoDb" driver_class="com.dbschema.MongoJdbcDriver" driver_jar="mongojdbc3.1.jar" driver_desc="No Authentication" host="localhost" port="27017" instance="E-commerce" user="admin" />
+	<layout name="Main Layout" id="Layout_501" show_column_type="y" show_relation="name" >
+		<entity schema="E-commerce" name="carts" color="BED3F4" x="288" y="336" />
+		<entity schema="E-commerce" name="categories" color="BED3F4" x="528" y="336" />
+		<entity schema="E-commerce" name="orders" color="BED3F4" x="528" y="592" />
+		<entity schema="E-commerce" name="products" color="BED3F4" x="288" y="592" />
+		<entity schema="E-commerce" name="roles" color="BED3F4" x="96" y="592" />
+		<entity schema="E-commerce" name="tags" color="BED3F4" x="96" y="400" />
+		<entity schema="E-commerce" name="user" color="BED3F4" x="48" y="80" />
+		<callout x="288" y="224" pointer="Round" >
+			<comment><![CDATA[Double-click collection headers or fields to edit.
+Create multiple layouts (diagrams) with the same or different collections. 
+Saving the model to file will save also the layouts.]]></comment>
+		</callout>
+		<group name="Collection &#039;carts&#039;" color="ECF0F7" >
+			<entity schema="E-commerce" name="carts" />
+			<entity schema="E-commerce" name="categories" />
+			<entity schema="E-commerce" name="orders" />
+			<entity schema="E-commerce" name="products" />
+			<entity schema="E-commerce" name="roles" />
+			<entity schema="E-commerce" name="tags" />
+			<entity schema="E-commerce" name="user" />
+		</group>
+	</layout>
+	<layout name="~Layout with Tools" id="Layout_2578" show_column_type="y" show_relation="name" >
+		<entity schema="E-commerce" name="carts" color="BED3F4" x="288" y="336" />
+		<entity schema="E-commerce" name="categories" color="BED3F4" x="528" y="336" />
+		<entity schema="E-commerce" name="orders" color="BED3F4" x="528" y="592" />
+		<entity schema="E-commerce" name="products" color="BED3F4" x="288" y="592" />
+		<entity schema="E-commerce" name="roles" color="BED3F4" x="96" y="592" />
+		<entity schema="E-commerce" name="tags" color="BED3F4" x="96" y="400" />
+		<entity schema="E-commerce" name="user" color="BED3F4" x="48" y="80" />
+		<group name="carts" color="ECF0F7" >
+			<entity schema="E-commerce" name="carts" />
+			<entity schema="E-commerce" name="categories" />
+			<entity schema="E-commerce" name="orders" />
+			<entity schema="E-commerce" name="products" />
+			<entity schema="E-commerce" name="roles" />
+			<entity schema="E-commerce" name="tags" />
+			<entity schema="E-commerce" name="user" />
+		</group>
+		<script name="Sample Query Editor" id="Editor_2412" language="SQL" >
+			<string><![CDATA[client.getDatabase('E-commerce').carts.find()
+
+//OR
+
+USE client.getDatabase('E-commerce');
+db.carts.find()
+
+//OR
+
+USE client.getDatabase('E-commerce');
+db.getCollection('carts').find()]]></string>
+		</script>
+		<browser id="Browse_1f90" name="Sample Relational Data Explorer" confirm_updates="y" >
+			<browse_table schema="E-commerce" entity="carts" x="20" y="20" width="400" height="300" record_view="y" />
+		</browser>
+		<query id="Query_15" name="Sample Query Builder" >
+			<query_table schema="E-commerce" name="carts" alias="carts" x="48" y="48" >
+				<column name="_id" />
+				<column name="name" />
+				<column name="user" />
+				<column name="product_qty" />
+				<column name="basePrice" />
+				<column name="sellPrice" />
+				<column name="totalprice" />
+			</query_table>
+		</query>
+	</layout>
+</project>
